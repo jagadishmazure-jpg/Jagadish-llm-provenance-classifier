@@ -1,0 +1,453 @@
+{
+ "calibration": {
+  "after": {
+   "brier": 0.4583,
+   "ece": 0.0728,
+   "nll": 0.9795
+  },
+  "before": {
+   "brier": 0.4789,
+   "ece": 0.1354,
+   "nll": 1.0843
+  },
+  "temperature": 1.6
+ },
+ "confusion": {
+  "labels": [
+   "qwen2.5-0.5b",
+   "qwen2.5-1.5b",
+   "smollm2-1.7b",
+   "smollm2-360m"
+  ],
+  "matrix": [
+   [
+    26,
+    6,
+    2,
+    6
+   ],
+   [
+    3,
+    31,
+    3,
+    3
+   ],
+   [
+    2,
+    3,
+    28,
+    7
+   ],
+   [
+    9,
+    3,
+    7,
+    21
+   ]
+  ]
+ },
+ "data": {
+  "manifest": {
+   "main.jsonl": {
+    "records": 640,
+    "sha256": "7d74f2639310b8cc7bfebf4a861dd86ace63ad58c6f44048c0f26e6f313a9e06"
+   },
+   "mimic.jsonl": {
+    "records": 80,
+    "sha256": "955867cbf1e0c66743bde0dda988a6a897d694f3cf7f8e9a86d7fc54cac714a9"
+   },
+   "paraphrase.jsonl": {
+    "records": 160,
+    "sha256": "1c00a18d0262d22079557318541971a8313510535ad3c25cc4b03aa816ee36b9"
+   },
+   "unknown.jsonl": {
+    "records": 40,
+    "sha256": "2776f143dbc0baf578881d889828a578a78d7defb64cba4b82818708ed68a326"
+   }
+  },
+  "models": [
+   "qwen2.5-0.5b",
+   "qwen2.5-1.5b",
+   "smollm2-1.7b",
+   "smollm2-360m"
+  ],
+  "test": 160,
+  "train": 400,
+  "val": 80
+ },
+ "guardrails": {
+  "auto_accusations": 0,
+  "findings": 440,
+  "human_review_share": 0.7727,
+  "inconclusive_sent_to_review_rate": 1.0,
+  "wording_lint_pass_rate": 1.0
+ },
+ "majority_baseline": {
+  "ci95": [
+   0.1893,
+   0.3224
+  ],
+  "k": 40,
+  "n": 160,
+  "rate": 0.25
+ },
+ "per_model_recall": {
+  "qwen2.5-0.5b": {
+   "ci95": [
+    0.4951,
+    0.7787
+   ],
+   "k": 26,
+   "n": 40,
+   "rate": 0.65
+  },
+  "qwen2.5-1.5b": {
+   "ci95": [
+    0.625,
+    0.8768
+   ],
+   "k": 31,
+   "n": 40,
+   "rate": 0.775
+  },
+  "smollm2-1.7b": {
+   "ci95": [
+    0.5457,
+    0.8193
+   ],
+   "k": 28,
+   "n": 40,
+   "rate": 0.7
+  },
+  "smollm2-360m": {
+   "ci95": [
+    0.375,
+    0.6706
+   ],
+   "k": 21,
+   "n": 40,
+   "rate": 0.525
+  }
+ },
+ "policy": {
+  "min_margin": 0.175,
+  "min_prob": 0.7,
+  "min_words": 30,
+  "target_val_precision": 0.95
+ },
+ "robustness": {
+  "drop_greeting_signoff": {
+   "abstain": {
+    "ci95": [
+     0.6185,
+     0.7599
+    ],
+    "k": 111,
+    "n": 160,
+    "rate": 0.6937
+   },
+   "raw_accuracy": {
+    "ci95": [
+     0.4913,
+     0.643
+    ],
+    "k": 91,
+    "n": 160,
+    "rate": 0.5687
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.0343,
+     0.1112
+    ],
+    "k": 10,
+    "n": 160,
+    "rate": 0.0625
+   }
+  },
+  "paraphrase": {
+   "abstain": {
+    "ci95": [
+     0.5926,
+     0.737
+    ],
+    "k": 107,
+    "n": 160,
+    "rate": 0.6687
+   },
+   "attributed_to_paraphraser": {
+    "ci95": [
+     0.0388,
+     0.1189
+    ],
+    "k": 11,
+    "n": 160,
+    "rate": 0.0688
+   },
+   "raw_accuracy": {
+    "ci95": [
+     0.4357,
+     0.5887
+    ],
+    "k": 82,
+    "n": 160,
+    "rate": 0.5125
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.0724,
+     0.1708
+    ],
+    "k": 18,
+    "n": 160,
+    "rate": 0.1125
+   }
+  },
+  "strip_formatting": {
+   "abstain": {
+    "ci95": [
+     0.6709,
+     0.8051
+    ],
+    "k": 119,
+    "n": 160,
+    "rate": 0.7438
+   },
+   "raw_accuracy": {
+    "ci95": [
+     0.4788,
+     0.631
+    ],
+    "k": 89,
+    "n": 160,
+    "rate": 0.5563
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.0343,
+     0.1112
+    ],
+    "k": 10,
+    "n": 160,
+    "rate": 0.0625
+   }
+  },
+  "style_mimic": {
+   "abstain": {
+    "ci95": [
+     0.5536,
+     0.7565
+    ],
+    "k": 53,
+    "n": 80,
+    "rate": 0.6625
+   },
+   "fooled_into_mimicked_model": {
+    "ci95": [
+     0.1786,
+     0.3682
+    ],
+    "k": 21,
+    "n": 80,
+    "rate": 0.2625
+   },
+   "pairs": [
+    "qwen2.5-0.5b->smollm2-1.7b",
+    "smollm2-360m->qwen2.5-1.5b"
+   ],
+   "raw_accuracy": {
+    "ci95": [
+     0.1576,
+     0.3414
+    ],
+    "k": 19,
+    "n": 80,
+    "rate": 0.2375
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.2106,
+     0.4077
+    ],
+    "k": 24,
+    "n": 80,
+    "rate": 0.3
+   }
+  },
+  "truncate_25_words": {
+   "abstain": {
+    "ci95": [
+     0.9766,
+     1.0
+    ],
+    "k": 160,
+    "n": 160,
+    "rate": 1.0
+   },
+   "raw_accuracy": {
+    "ci95": [
+     0.4052,
+     0.5582
+    ],
+    "k": 77,
+    "n": 160,
+    "rate": 0.4813
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.0,
+     0.0234
+    ],
+    "k": 0,
+    "n": 160,
+    "rate": 0.0
+   }
+  },
+  "truncate_50_words": {
+   "abstain": {
+    "ci95": [
+     0.5926,
+     0.737
+    ],
+    "k": 107,
+    "n": 160,
+    "rate": 0.6687
+   },
+   "raw_accuracy": {
+    "ci95": [
+     0.4975,
+     0.649
+    ],
+    "k": 92,
+    "n": 160,
+    "rate": 0.575
+   },
+   "wrong_attribution": {
+    "ci95": [
+     0.0674,
+     0.1636
+    ],
+    "k": 17,
+    "n": 160,
+    "rate": 0.1062
+   }
+  }
+ },
+ "selective": {
+  "accuracy_when_attributed": {
+   "ci95": [
+    0.7583,
+    0.9309
+   ],
+   "k": 52,
+   "n": 60,
+   "rate": 0.8667
+  },
+  "coverage": {
+   "ci95": [
+    0.3037,
+    0.4521
+   ],
+   "k": 60,
+   "n": 160,
+   "rate": 0.375
+  },
+  "wrong_attribution": {
+   "ci95": [
+    0.0256,
+    0.0956
+   ],
+   "k": 8,
+   "n": 160,
+   "rate": 0.05
+  }
+ },
+ "self_mentions": {
+  "qwen2.5-0.5b": 4,
+  "qwen2.5-1.5b": 0,
+  "smollm2-1.7b": 1,
+  "smollm2-360m": 4
+ },
+ "top_style_features": {
+  "qwen2.5-0.5b": [
+   "style__quote_rate",
+   "style__starts_dear",
+   "style__mean_sentence_words",
+   "style__semicolon_rate"
+  ],
+  "qwen2.5-1.5b": [
+   "style__n_words_log",
+   "style__markdown_bold",
+   "style__type_token_ratio",
+   "style__starts_dear"
+  ],
+  "smollm2-1.7b": [
+   "style__blank_line_rate",
+   "style__starts_qa",
+   "style__emoji_rate",
+   "style__dash_rate"
+  ],
+  "smollm2-360m": [
+   "style__quote_rate",
+   "style__bullet_lines",
+   "style__mean_sentence_words",
+   "style__newline_rate"
+  ]
+ },
+ "unknown_model": {
+  "abstained": {
+   "ci95": [
+    0.6524,
+    0.895
+   ],
+   "k": 32,
+   "n": 40,
+   "rate": 0.8
+  },
+  "forced_into": {
+   "qwen2.5-0.5b": 4,
+   "smollm2-1.7b": 4
+  },
+  "model": [
+   "tinyllama-1.1b"
+  ]
+ },
+ "variants": {
+  "full": {
+   "accuracy": {
+    "ci95": [
+     0.5862,
+     0.7312
+    ],
+    "k": 106,
+    "n": 160,
+    "rate": 0.6625
+   },
+   "macro_f1": 0.6606
+  },
+  "stylometry": {
+   "accuracy": {
+    "ci95": [
+     0.5606,
+     0.708
+    ],
+    "k": 102,
+    "n": 160,
+    "rate": 0.6375
+   },
+   "macro_f1": 0.6351
+  },
+  "tfidf": {
+   "accuracy": {
+    "ci95": [
+     0.5862,
+     0.7312
+    ],
+    "k": 106,
+    "n": 160,
+    "rate": 0.6625
+   },
+   "macro_f1": 0.6651
+  }
+ }
+}
