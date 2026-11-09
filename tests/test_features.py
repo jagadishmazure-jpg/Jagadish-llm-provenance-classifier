@@ -1,3 +1,5 @@
+import math
+
 from provenance.features import FEATURE_NAMES, Stylometry, stylometry
 
 
@@ -10,7 +12,7 @@ def test_vector_matches_names():
 
 
 def test_empty_text_is_safe():
-    assert all(v == v for v in stylometry(""))  # no NaN
+    assert not any(math.isnan(v) for v in stylometry(""))
 
 
 def test_opening_and_closing_flags():
